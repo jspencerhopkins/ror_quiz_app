@@ -1,0 +1,10 @@
+<li id="<%= dom_id(user) %>">
+	<%= link_to user.name, user %> 
+
+
+	<%= button_to 'Delete', user,
+               method: :delete,
+               remote: true %>
+
+</li>
+

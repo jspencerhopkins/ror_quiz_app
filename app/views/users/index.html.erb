@@ -1,0 +1,61 @@
+<h1>TIY Orlando Spring 2015 Users</h1>
+
+<ul>
+		<%= render partial: 'user', collection: @users %>
+</ul>
+
+<p>
+	<%= link_to 'Create a new user', new_user_path, id: "new_user_link" %>
+</p>
+
+<%= render 'form' %>
+
+<script>
+
+	$("#new_user").hide();
+	$("#new_user_link").click(function(event){
+		event.preventDefault();
+		$("#new_user").slideDown();
+	});
+
+	//var users = document.getElementsByTagName('li');
+	//console.log("there are", users.length, "in the list");
+
+
+	var tooManyUsers = function(x) {
+		if($('li').length > x) {
+			$('li').hide();
+			var h2tag = $("<h2>Too Many Users</h2>");
+			$('ul').after(h2tag);
+		}
+	}
+
+	var tooManyLinks= function(x) {
+		if($('a').length > x) {
+			$('li').hide();
+			$('a').hide();
+			var h2tag = $("<h2>Too Many Links</h2>");
+			$('ul').after(h2tag);
+		}
+	}
+
+	var tooManyThings = function(x,tagName, message) {
+		if($(tagName).length > x){
+			$(tagName).hide();
+			$('ul').after('<h2>' + message + '</h2>');
+		}
+	}
+	
+	//tooManyThings(2, 'li', 'Too Many Users');
+	//tooManyThings(2, 'a', 'Too Many Links');
+
+	var hideOrShowDelButtons = function(x) {
+	if($('.button_to').length < x) {
+			$('.button_to').hide();
+		} else { 
+				$(".button_to").show();
+		}	
+	}
+	hideOrShowDelButtons(8);
+
+</script>

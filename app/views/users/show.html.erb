@@ -1,0 +1,18 @@
+<h1><%= @user.name %>'s Page</h1>
+
+
+<p> A link to <%= @user.name %>'s GitHub account: 
+	<%= link_to @user.name, "https://github.com/#{@user.github_acct}", title: "Warning: This links to an external site" %>
+</p>
+
+<p>
+	<%= link_to 'Edit', edit_user_path %>
+</p>
+
+<p>
+	<p>
+  <%= button_to 'Delete User', user_path,
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+</p>

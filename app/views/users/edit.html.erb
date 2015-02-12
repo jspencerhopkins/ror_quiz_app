@@ -1,0 +1,15 @@
+<h2>Edit User</h2>
+ 
+ <%= form_for @user do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label "Edit GitHub Acct" %><br>
+    <%= f.text_field :github_acct %>
+  </p>
+  <p>
+    <%= f.submit "Save"%>
+  </p>
+<% end %>
