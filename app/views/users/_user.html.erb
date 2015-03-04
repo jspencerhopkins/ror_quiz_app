@@ -1,5 +1,6 @@
-<li id="<%= dom_id(user) %>">
-	<%= link_to user.name, user %> 
+<li id="<%= dom_id(user) %>" >
+	
+  <%= link_to user.name, user, class: link_style(user.name) %> 
 
 
 	<%= button_to 'Delete', user,

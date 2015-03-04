@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
 	before_action :find_user, only: [ :show, :edit, :update, :destroy]
+	before_action :find_logged_in_user
+
 
 	def index
-		@users = User.all
+		@users = User.paginate(page: params[:page], per_page: 25)
 		@user = User.new
 	end
 
@@ -35,8 +37,13 @@ class UsersController < ApplicationController
 		@user.destroy
 		respond_to do |format|
 			format.html {redirect_to root_url, notice: "Goodbye"}
-			format.js {} #if blank, tihs will look for app/views/users/destroy.js.erb
+			format.js {redirect_to root_url} #if blank, tihs will look for app/views/users/destroy.js.erb
 		end
+	end
+
+	def original
+		@users = User.original
+
 	end
 
 	private
@@ -45,7 +52,7 @@ class UsersController < ApplicationController
 		end
 
 		def user_params
-			params.require(:user).permit(:name, :github_acct)
+			params.require(:user).permit(:name, :github_acct, :password, :password_confirmation)
 		end
 
 end

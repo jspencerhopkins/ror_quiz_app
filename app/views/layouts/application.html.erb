@@ -8,6 +8,14 @@
 </head>
 <body>
 
+<% if session[:user_id] %>
+	<%= form_tag '/logout', method: :delete do %>
+		<%= submit_tag "Logout" %>
+	<% end %>
+<% else %>
+	<p><%= link_to 'Signup', signup_path %> or <%= link_to 'Log in', login_path %></p>	
+<% end %>	
+
 <%= flash[:notice] %>
 
 <%= yield %>

@@ -1,3 +1,15 @@
-$("<%= escape_javascript(render partial: 'user', object: @user) %>").appendTo($("ul"));
+<% if @user.valid? %>
 
-hideOrShowDelButtons(8);
+	$("<%= escape_javascript(render partial: 'user', object: @user) %>").appendTo($("ul"));
+
+	hideOrShowDelButtons(8);
+
+	$("#errors").remove();
+
+<% else %>
+	$('#new_user').before("<div id=\"errors\"></div>");
+	<% @user.errors.full_messages.each do |msg| %>
+		$('#errors').append("<%= msg %>"); 
+		//alert("<%= msg %>");
+	<% end %>
+<% end %>

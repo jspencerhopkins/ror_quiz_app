@@ -1,5 +1,7 @@
 <h1>TIY Orlando Spring 2015 Users</h1>
 
+<%= will_paginate %>
+
 <ul>
 		<%= render partial: 'user', collection: @users %>
 </ul>
@@ -8,9 +10,32 @@
 	<%= link_to 'Create a new user', new_user_path, id: "new_user_link" %>
 </p>
 
+<%= will_paginate %>
+
 <%= render 'form' %>
 
+<div id='off' class='ghost'>
+	<img src='https://lintvkhon.files.wordpress.com/2014/05/peter-ortiz.jpg' style="width:500px;height:300px">
+</div>
+<br>
+<div id='switch'>
+	<a href=''>The Iron Yard</a>
+</div>
+
 <script>
+
+	$("#switch").click(function(event){
+    if ($('#id').hasClass('ghost')) {
+       event.preventDefault();
+       $('#id').removeClass('ghost');
+    // } else {
+    //   event.preventDefault();
+    //   $(this).addClass('active')
+    //   $("#new_comerr").slideDown();
+    }
+  });
+
+
 
 	$("#new_user").hide();
 	$("#new_user_link").click(function(event){
@@ -57,5 +82,9 @@
 		}	
 	}
 	hideOrShowDelButtons(8);
+
+
+
+
 
 </script>

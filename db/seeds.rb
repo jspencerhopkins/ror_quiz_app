@@ -6,17 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-students = [ 
-	['Andell', 'AJean144'],
-	['Jeff', 'palmbeachjeff'],
-	['Ivan', 'ivansherman'],
-	['Kelly', 'QueVee'],
-	['Angela', 'angelabier1'],
-	['Joe', 'malkin28025'],
-	['Peter', 'peterortiz82'],
-	['Spencer', 'jspencerhopkins']
-]
+# students = [ 
+# 	['Andell', 'AJean144'],
+# 	['Jeff', 'palmbeachjeff'],
+# 	['Ivan', 'ivansherman'],
+# 	['Kelly', 'QueVee'],
+# 	['Angela', 'angelabier1'],
+# 	['Joe', 'malkin28025'],
+# 	['Peter', 'peterortiz82'],
+# 	['Spencer', 'jspencerhopkins']
+# ]
 
-students.each do |student|
-	User.create(name: student[0], github_acct: student[1])
+# students.each do |student|
+# 	User.create(name: student[0], github_acct: student[1])
+# end
+while User.count < 1000 do
+	User.create(name: Faker::Name.name, github_acct: Faker::Internet.domain_word, password: 'password', password_confirmation: 'password')
 end

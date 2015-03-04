@@ -1,3 +1,24 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a.alphabetical {
+  background: green;
+  color: #fff;
+}
+
+// .starts_w_a a:link {
+//   color: white;
+// }
+
+// .starts_w_a a:visited {
+//     color: white;
+// }
+
+.long {
+  font-weight: bold;
+}
+
+.ghost {
+    display:none;
+  }

@@ -1,0 +1,9 @@
+<h1>Original Users</h1>
+
+<ul>
+<% @users.each do |user| %>
+  <li>
+    <%= link_to user.name, user_path(user.id), class: 'old-timey' %>
+  </li>
+<% end %>
+</ul>
